@@ -7,7 +7,7 @@ from Connect4Board import Connect4Board
 from MinimaxPlayer import MinimaxAIPlayer
 from RandomPlayer import RandomAIPlayer
 # Descomenta quando o teu colega terminar o MCTS:
-# from MCTSPlayer import MCTSAIPlayer
+from MCTSAIPlayer import MCTSAIPlayer
 
 
 def play_game(p1, p2, rows=6, cols=7, n_connect=4):

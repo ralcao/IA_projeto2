@@ -1,6 +1,5 @@
 from Player import Player
 
-
 class MinimaxAIPlayer(Player):
     def __init__(self, piece, max_depth=5):
         super().__init__(piece)
@@ -8,8 +7,26 @@ class MinimaxAIPlayer(Player):
         self.opponent_piece = 2 if piece == 1 else 1
 
     def get_move(self, board):
-        _, col = self.minimax(board, self.max_depth, float('-inf'), float('inf'), True)
+        print(f"\n--- MINIMAX (Profundidade {self.max_depth}) A PENSAR ---")
+
+        # O Minimax devolve a pontuação esperada e a coluna
+        best_score, col = self.minimax(board, self.max_depth, float('-inf'), float('inf'), True)
+
+        # Traduzir o score para algo humano perceber no terminal
+        if best_score > 9000:
+            estado = "ENCONTREI VITÓRIA GARANTIDA!"
+        elif best_score < -9000:
+            estado = "ESTOU EM PÂNICO (Vou perder...)"
+        elif best_score > 50:
+            estado = "Estou ao ataque"
+        elif best_score < -30:
+            estado = "Estou a defender/bloquear"
+        else:
+            estado = "A desenvolver jogo no centro"
+
+        print(f"--- MINIMAX DECIDIU: Coluna {col} | Score: {best_score} ({estado}) ---")
         return col
+
 
     def minimax(self, board, depth, alpha, beta, maximizing):
         # Verificar estados terminais antes de gerar novos movimentos
