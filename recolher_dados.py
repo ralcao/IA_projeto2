@@ -77,12 +77,12 @@ def run_comparison(label, make_p1, make_p2, n_games=50):
 
 
 # ── 1. Minimax vs Aleatório ───────────────────────────────────────────────────
-run_comparison(
+#run_comparison(
     label="Minimax vs Aleatório",
     make_p1=lambda: MinimaxAIPlayer(piece=1, max_depth=5),
     make_p2=lambda: RandomAIPlayer(piece=2),
     n_games=25
-)
+#)
 
 # ── 2. MCTS vs Aleatório (descomenta quando o MCTS estiver pronto) ────────────
 # run_comparison(
@@ -93,21 +93,21 @@ run_comparison(
 # )
 
 # ── 3. Minimax vs MCTS — 3 combinações (descomenta quando o MCTS estiver pronto) ──
-# COMBINAÇÃO 1 — tempo curto (ex: depth=3, iterations=300)
-# run_comparison(
-#     label="1ª comb — Minimax(depth=3) vs MCTS(iter=300)",
-#     make_p1=lambda: MinimaxAIPlayer(piece=1, max_depth=3),
-#     make_p2=lambda: MCTSAIPlayer(piece=2, max_iterations=300),
-#     n_games=50
-# )
+#COMBINAÇÃO 1 — tempo curto (ex: depth=3, iterations=300)#
+#run_comparison(
+ #    label="1ª comb — Minimax(depth=3) vs MCTS(iter=300)",
+  #   make_p1=lambda: MinimaxAIPlayer(piece=1, max_depth=3),
+   #  make_p2=lambda: MCTSAIPlayer(piece=2, max_iterations=300),
+    # n_games=50
+#)
 
-# COMBINAÇÃO 2 — tempo médio (ex: depth=5, iterations=1000)
-# run_comparison(
-#     label="2ª comb — Minimax(depth=5) vs MCTS(iter=1000)",
-#     make_p1=lambda: MinimaxAIPlayer(piece=1, max_depth=5),
-#     make_p2=lambda: MCTSAIPlayer(piece=2, max_iterations=1000),
-#     n_games=50
-# )
+#COMBINAÇÃO 2 — tempo médio (ex: depth=5, iterations=1000)
+run_comparison(
+     label="2ª comb — Minimax(depth=4) vs MCTS(iter=1000)",
+     make_p1=lambda: MinimaxAIPlayer(piece=1, max_depth=4),
+     make_p2=lambda: MCTSAIPlayer(piece=2, max_iterations=1000),
+     n_games=50
+)
 
 # COMBINAÇÃO 3 — tempo longo (ex: depth=7, iterations=3000)
 # run_comparison(

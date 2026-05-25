@@ -7,7 +7,7 @@ class MinimaxAIPlayer(Player):
         self.opponent_piece = 2 if piece == 1 else 1
 
     def get_move(self, board):
-        print(f"\n--- MINIMAX (Profundidade {self.max_depth}) A PENSAR ---")
+        #print(f"\n--- MINIMAX (Profundidade {self.max_depth}) A PENSAR ---")
 
         # O Minimax devolve a pontuação esperada e a coluna
         best_score, col = self.minimax(board, self.max_depth, float('-inf'), float('inf'), True)
@@ -24,7 +24,7 @@ class MinimaxAIPlayer(Player):
         else:
             estado = "A desenvolver jogo no centro"
 
-        print(f"--- MINIMAX DECIDIU: Coluna {col} | Score: {best_score} ({estado}) ---")
+        #print(f"--- MINIMAX DECIDIU: Coluna {col} | Score: {best_score} ({estado}) ---")
         return col
 
 

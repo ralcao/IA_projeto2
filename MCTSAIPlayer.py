@@ -16,15 +16,15 @@ class MCTSAIPlayer(Player):
 
 
     def get_move(self, board):
-        print("\n--- O MCTS ESTÁ A PENSAR ---")
+        #print("\n--- O MCTS ESTÁ A PENSAR ---")
         #criar o ponto de partida que é a raiz da nossa arvore
         #usamos o board.copy pra nao tocar no jogo real
         root = Node(state = board.copy(), action = None)
 
         #criar o ciclo principal do MCTS
         for i in range (self.max_iterations):
-            if i % 200 == 0:
-                print(f"A processar iteração {i}...")
+            #if i % 200 == 0:
+                #print(f"A processar iteração {i}...")
             #selecionar o melhor caminho e expandir o novo nó
             node, next_piece_to_play = self._select_and_expand(root)
 
@@ -38,7 +38,7 @@ class MCTSAIPlayer(Player):
         #dps das 1000 iterações escolhemos o nó com melhor ucb
         #passamos c = 0 pois queremos apenas a com mais vitorias nao queremos explorar
         best_node = root.best_child(c=0)
-        print(f"--- MCTS DECIDIU: Coluna {best_node.action} ---")
+        #print(f"--- MCTS DECIDIU: Coluna {best_node.action} ---")
 
         return best_node.action
 
